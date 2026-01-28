@@ -181,6 +181,6 @@ Solution: Stop other processes using port 3000 or change PORT in server.js
 - Ensure CSS file path in HTML is correct: `/styles/style.css`
 
 ## License
-Copyright © 2026 Laurea FullStack 2026
+Copyright ©Jari Kovis 2026 Laurea FullStack 2026
 
 ISC
