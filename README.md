@@ -64,18 +64,47 @@ git clone https://github.com/Laurea-FullStack-2026/Workshop03_Express.git
 cd Workshop03_Express
 ```
 
-### 2️⃣ Navigate to the starter folder
+### 2️⃣ Clean up the repository
+After cloning, remove files and folders you don't need for your solution:
+
+```bash
+
+# Remove the tuntiharjoitukset folder (example files)
+Remove-Item -Path "tuntiharjoitukset" -Recurse -Force
+
+# Keep only:
+# - starter/ (your working directory)
+# - README.md
+# - requirements.md
+```
+
+### 3️⃣ Reinitialize the git repository
+```bash
+# Remove the cloned git history
+Remove-Item -Path ".git" -Recurse -Force
+
+# Initialize a new repository
+git init
+
+# Add your files
+git add .
+
+# Create the first commit
+git commit -m "Initial commit - Workshop03 Express"
+```
+
+### 4️⃣ Navigate to the starter folder
 ```bash
 cd starter
 ```
 
-### 3️⃣ Install dependencies
+### 5️⃣ Install dependencies
 ```bash
 npm install
 ```
 *Note: This project requires Express.js as a dependency.*
 
-### 4️⃣ Start working on the tasks
+### 6️⃣ Start working on the tasks
 Open `server.js` and follow the TODO comments to complete each task.
 
 ---
@@ -97,10 +126,7 @@ Workshop03_Express/
 │   │       └── style.css # Stylesheet
 │   └── README.md
 │
-├── Solution/            # Complete solution (for reference only)
-│   └── server.js        # Fully implemented server
-│
-├── requirement.md       # Detailed task requirements
+├── requirements.md      # Detailed task requirements
 └── README.md           # This file
 ```
 
@@ -110,29 +136,40 @@ Workshop03_Express/
 
 Complete the following tasks in order:
 
-### ✅ Task 1 – Install and Import Express
-- Install Express.js using npm
-- Import Express and create an Express application instance
+### ✅ Task 1 – Create Express App
+- Create an Express application instance
+- Define the PORT constant (use 3000)
 
 ### ✅ Task 2 – Serve Static Files
 - Configure Express to serve static files from the `public` directory
-- Understand `express.static()` middleware
+- Use `express.static()` middleware to serve HTML, CSS, and other static assets
 
 ### ✅ Task 3 – Add Route Handlers
-- Create route handlers for homepage, about, and contact pages
+- Create route handlers for:
+  - Home page (`GET /`)
+  - About page (`GET /about`)
+  - Contact page (`GET /contact`)
 - Use `res.sendFile()` to serve HTML files
 
 ### ✅ Task 4 – Create API Endpoint
 - Create a `/api/time` endpoint that returns current date/time as JSON
 - Use `res.json()` for JSON responses
 
+### 🌟 Bonus: Express Router (Task 6)
+- Organize API routes using Express Router
+- Create a separate router for API endpoints
+- Mount the router on `/api` path
+
 ### ✅ Task 5 – Error Handling Middleware
 - Implement custom 404 error handler middleware
 - Implement custom 500 error handler middleware
+- Remember: Error handlers must be placed AFTER all other routes
+- 404 handler catches unmatched routes
+- 500 handler catches application errors
 
-### 🌟 Task 6 (Bonus) – Express Router
-- Organize routes using Express Router
-- Create a separate router for API endpoints
+### ✅ Start the Server
+- Uncomment `app.listen()` to start the server on PORT 3000
+- Log startup message with available routes
 
 ---
 
@@ -243,7 +280,6 @@ After completing all tasks:
 ## Need Help?
 
 - Review the comments in `server.js` for detailed hints
-- Check the `Solution` folder for reference (try to solve it yourself first!)
 - Refer to `requirement.md` for detailed task specifications
 - Consult Express.js documentation
 - Ask your instructor or teaching assistant

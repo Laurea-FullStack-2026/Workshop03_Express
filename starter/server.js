@@ -5,20 +5,14 @@ const path = require('path');
 // TODO: Task 1 - Create Express App
 // ========================================
 // Step 1: Create an Express application instance
-// Uncomment the line below:
-// const app = express();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // ========================================
 // TODO: Task 2 - Serve Static Files
 // ========================================
 // Configure Express to serve static files from the 'public' directory
 // This middleware automatically serves HTML, CSS, images, etc.
-// Uncomment the line below:
-
-// app.use(express.static('public'));
-
 // Hint: This single line replaces all the file reading logic from Workshop 02!
 
 
@@ -39,13 +33,10 @@ app.use((req, res, next) => {
 // ========================================
 // Create route handlers for the main pages
 
-// Home page route
-// TODO: Uncomment and complete:
-/*
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-*/
+// About home route
+// TODO: Create a GET route for '/'
+// Hint: serve 'index.html'
+
 
 // About page route
 // TODO: Create a GET route for '/about'
@@ -65,32 +56,18 @@ app.get('/', (req, res) => {
 // TODO: Create a GET route for '/api/time'
 // It should return JSON with 'datetime' and 'timestamp' properties
 // Hint: Use res.json() to send JSON response
-/*
-app.get('/api/time', (req, res) => {
-    res.json({
-        datetime: new Date().toISOString(),
-        timestamp: Date.now()
-    });
-});
-*/
-
 
 // ========================================
 // BONUS: Task 6 - Express Router (Optional)
 // ========================================
 // Organize API routes using Express Router
-// Uncomment the section below to use Router:
+// Complete section below to use Router:
 
 /*
 const apiRouter = express.Router();
 
 // Move the /api/time route to the router
-apiRouter.get('/time', (req, res) => {
-    res.json({
-        datetime: new Date().toISOString(),
-        timestamp: Date.now()
-    });
-});
+
 
 // Add more API routes here if needed
 apiRouter.get('/info', (req, res) => {
@@ -112,10 +89,10 @@ app.use('/api', apiRouter);
 
 // 404 Handler - Must be placed AFTER all other routes
 // This catches any requests that don't match the routes above
-// TODO: Uncomment and complete:
+// TODO: Complete:
 /*
 app.use((req, res) => {
-    res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
+    complete this line - res.status(404)....);
 });
 */
 
@@ -123,11 +100,11 @@ app.use((req, res) => {
 // 500 Error Handler - Must be placed LAST
 // This catches any errors that occur in your application
 // Note: Error handling middleware has 4 parameters: (err, req, res, next)
-// TODO: Uncomment and complete:
+// TODO: Complete:
 /*
 app.use((err, req, res, next) => {
     console.error('Server Error:', err.stack);
-    res.status(500).sendFile(path.join(__dirname, 'public', '500.html'));
+    complete this line - res.status(500)....);
 });
 */
 

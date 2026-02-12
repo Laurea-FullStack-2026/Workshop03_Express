@@ -211,6 +211,9 @@ Your solution will be considered complete if:
 **Description**  
 Organize your routes using Express Router for better code organization.
 
+**File Location**  
+Add this code in `starter/server.js` after all regular route handlers (Task 3) but **before** error handling middleware (Task 5).
+
 **Requirements**
 - Create a separate router for API routes
 - Move `/api/time` to the API router
@@ -229,6 +232,13 @@ apiRouter.get('/time', (req, res) => {
 
 app.use('/api', apiRouter);
 ```
+
+**Middleware Order**
+1. Static files middleware (Task 2)
+2. Regular route handlers (Task 3)
+3. **API Router (This task)** ← Add here
+4. Error handling middleware (Task 5)
+5. Server listener
 
 ### Bonus Task 2 – Request Logging Middleware
 **Description**  
